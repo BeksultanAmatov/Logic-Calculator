@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+
+}
+
+nav{
+    width: 100%;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 20px;
+}
+
+.nav-ul ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-ul ul li{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-ul ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 3px 3px;
+    border-radius: 5px;
+}
+
+.nav-ul ul li a:hover{
+    color: #50C878;
+    background-color: #50C878;
+    color: white;
+}
+
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    width: 95%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.text-box{
+    width: 500px;
+}
+
+.text-box h1{
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.text-box button{
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color:#50C878;
+    color: black;
+    font-weight: 600;
+}
+
+.text-box button:hover{
+    background-color: black;
+    color: #50C878;
+}

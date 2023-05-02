@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Truth Table Generator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		input[type="text"] {
+			padding: 5px;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		table {
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+		th, td {
+			padding: 10px;
+			border: 1px solid black;
+		}
+		th {
+			background-color: #ddd;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h1>Truth Table Generator</h1>
+	<label for="variables">Enter variables:</label>
+	<input type="text" id="variables" placeholder="Enter variables separated by commas (e.g. a,b,c)">
+	<br>
+	<label for="expression">Enter logic expression:</label>
+	<input type="text" id="expression" placeholder="Enter logic expression (e.g. a &amp; b)">
+	<br>
+	<button onclick="generateTable()">Generate table</button>
+	<div id="tableContainer"></div>
+
+	<script>
+		function generateTable() {
+			var variables = document.getElementById("variables").value.replace(/\s/g, "").split(",");
+			var expression = document.getElementById("expression").value.replace(/\s/g, "");
+
+			// Generate table headers
+			var tableHeaders = "<th>" + variables.join("</th><th>") + "</th><th>" + expression + "</th><tr>";
+
+			// Generate table rows
+			var tableRows = "";
+			for (var i = 0; i < Math.pow(2, variables.length); i++) {
+				var binary = i.toString(2);
+				while (binary.length < variables.length) {
+					binary = "0" + binary;
+				}
+				var row = "<td>" + binary.split("").join("</td><td>") + "</td><td>" + eval(expression.replace(/([a-z])/g, "binary.charAt(variables.indexOf('$1'))")) + "</td><tr>";
+				tableRows += row;
+			}
+
+			// Generate table
+			var table = "<table><thead><tr>" + tableHeaders + "</tr></thead><tbody>" + tableRows + "</tbody></table>";
+			document.getElementById("tableContainer").innerHTML = table;
+		}
+	</script>
+</body>
+</html>
